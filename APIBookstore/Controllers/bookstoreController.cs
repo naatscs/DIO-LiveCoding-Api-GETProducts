@@ -19,13 +19,19 @@ namespace APIBookstore.Controllers
 
         public bookstoreController(TodoContext context)
         {
+
             _context = context;
 
-            _context.TodoProducts.Add(new Product { Id = "1", Name = "Book1", Price = 24, Quantity = 1, Category = "action", Img = "Img1" });
-            _context.TodoProducts.Add(new Product { Id = "2", Name = "Book2", Price = 50, Quantity = 1, Category = "action", Img = "Img1" });
-            _context.TodoProducts.Add(new Product { Id = "3", Name = "Book3", Price = 20, Quantity = 2, Category = "action", Img = "Img1" });
-            _context.TodoProducts.Add(new Product { Id = "4", Name = "Book4", Price = 10, Quantity = 1, Category = "action", Img = "Img1" });
-            _context.TodoProducts.Add(new Product { Id = "5", Name = "Book5", Price = 15, Quantity = 5, Category = "action", Img = "Img1" });
+            foreach (Product x in _context.TodoProducts)
+                _context.TodoProducts.Remove(x);
+            _context.SaveChanges();
+
+
+            _context.TodoProducts.Add(new Product { Id = "1", Name = "Book1", Price = 24, Quantity = 1, Category = "action", Img = "img1" });
+            _context.TodoProducts.Add(new Product { Id = "2", Name = "Book2", Price = 50, Quantity = 1, Category = "action", Img = "img2" });
+            _context.TodoProducts.Add(new Product { Id = "3", Name = "Book3", Price = 20, Quantity = 2, Category = "action", Img = "img3" });
+            _context.TodoProducts.Add(new Product { Id = "4", Name = "Book4", Price = 10, Quantity = 1, Category = "action", Img = "img1" });
+            _context.TodoProducts.Add(new Product { Id = "5", Name = "Book5", Price = 15, Quantity = 5, Category = "action", Img = "img1" });
 
 
 
